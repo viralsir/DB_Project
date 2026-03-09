@@ -6,15 +6,16 @@ public class PostgresJdbcExample {
         Class.forName("org.postgresql.Driver");
 
         Connection con = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/testdb",
+                "jdbc:postgresql://localhost:5433/ArahmDB",
                 "postgres",
                 "1234");
 
         PreparedStatement ps =
-                con.prepareStatement("insert into student values(?,?)");
+                con.prepareStatement("insert into public.student values(?,?,?)");
 
-        ps.setInt(1, 1);
+        ps.setInt(1, 2);
         ps.setString(2, "Rahul");
+        ps.setInt(3,44);
 
         ps.executeUpdate();
 
